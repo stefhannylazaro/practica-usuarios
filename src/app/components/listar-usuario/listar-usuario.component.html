@@ -1,0 +1,21 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido paterno</th>
+        <th scope="col">Apellido materno</th>
+        <th scope="col">Correo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of listaUsuarios; let i=index">
+        <th scope="row">{{i+1}}</th>
+        <td>{{user.nombre}}</td>
+        <td>{{user.apellidoP}}</td>
+        <td>{{user.apellidoM}}</td>
+        <td>{{user.correo}}</td>
+      </tr>
+    </tbody>
+</table>
+        
