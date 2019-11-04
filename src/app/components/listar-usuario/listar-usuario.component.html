@@ -1,11 +1,14 @@
+<a href="" [routerLink]="['/home']">Inicio</a><br>
+<button type="button" class="btn btn-primary my-2" [routerLink]="['/crear-usuario']">Agregar</button>
 <table class="table">
     <thead>
       <tr>
-        <th scope="col">#</th>
+        <th scope="col">ID</th>
         <th scope="col">Nombre</th>
         <th scope="col">Apellido paterno</th>
         <th scope="col">Apellido materno</th>
         <th scope="col">Correo</th>
+        <th scope="col">Acciones</th>
       </tr>
     </thead>
     <tbody>
@@ -15,6 +18,10 @@
         <td>{{user.apellidoP}}</td>
         <td>{{user.apellidoM}}</td>
         <td>{{user.correo}}</td>
+        <td>
+          <button type="button" class="btn btn-primary" [routerLink]="['/editar-usuario',i+1]">Editar</button>
+          <button type="button" class="btn btn-success ml-1" [routerLink]="['/detalle-usuario/',i+1]">Detalle</button>
+        </td>
       </tr>
     </tbody>
 </table>

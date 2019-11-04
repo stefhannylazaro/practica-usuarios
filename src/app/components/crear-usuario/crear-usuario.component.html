@@ -1,6 +1,6 @@
-<h5>Crear usuario</h5>
+<h5 class="mb-2">{{title}}</h5>
 <div class="row">
-    <form #formUser="ngForm" (ngSubmit)="enviar()" class="col-md-8">
+    <form #formUser="ngForm" (ngSubmit)="enviar(formUser)" class="col-md-8">
         <div class="form-group row">
         <label for="nombre" class="col-sm-4 col-form-label">Nombre</label>
         <div class="col-sm-8">
@@ -30,8 +30,13 @@
             </div>
         </div>
         <div class="text-right">
-            <button type="" class="btn btn-dark">Cancelar</button>
+            <button type="" class="btn btn-secondary" [routerLink]="['/usuarios']">Cancelar</button>
             <button type="submit" class="ml-2 btn btn-primary" [disabled]="formUser.invalid">Enviar</button>
         </div>
     </form>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <app-notificacion *ngIf=showNotification [msg]="mensaje" [tipo]="tipoMensaje"></app-notificacion>
+    </div>
 </div>

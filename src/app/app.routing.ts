@@ -6,6 +6,8 @@ import {HomeComponent} from './components/home/home.component';
 import {ListarUsuarioComponent} from './components/listar-usuario/listar-usuario.component';
 import {CrearUsuarioComponent} from './components/crear-usuario/crear-usuario.component';
 import {DetalleUsuarioComponent} from './components/detalle-usuario/detalle-usuario.component';
+import {EditarUsuarioComponent} from './components/editar-usuario/editar-usuario.component';
+
 import {C404Component} from './components/c404/c404.component';
 
 //Array de rutas
@@ -14,7 +16,8 @@ const appRoutes: Routes = [
     {path: 'home',component:HomeComponent},
     {path: 'usuarios',component:ListarUsuarioComponent},
     {path: 'crear-usuario',component:CrearUsuarioComponent},
-    {path: 'detalle-usuario',component:DetalleUsuarioComponent},
+    {path: 'editar-usuario/:id',component:EditarUsuarioComponent},
+    {path: 'detalle-usuario/:id',component:DetalleUsuarioComponent},
     {path: '**',component:C404Component}
   ];
 
