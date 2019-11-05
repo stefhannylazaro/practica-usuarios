@@ -9,20 +9,29 @@ import {UsuarioService} from '../../services/usuario.service';
   providers:[UsuarioService]
 })
 export class ListarUsuarioComponent implements OnInit {
-  public listaUsuarios:Array<Usuario>;
+  public listaUsuarios:Array<any>;
   constructor(
     private _usuarioService:UsuarioService
   ) {
-    this.listaUsuarios=[
-      new Usuario("Rosa","Perez","Campos","rosa@mail.com"),
-      new Usuario("Rosa","Perez","Campos","rosa@mail.com"),
-      new Usuario("Rosa","Perez","Campos","rosa@mail.com"),
-      new Usuario("Rosa","Perez","Campos","rosa@mail.com")
-    ];
+    // this.listaUsuarios=[
+    //   new Usuario("Rosa","Perez","Campos","rosa@mail.com"),
+    //   new Usuario("Rosa","Perez","Campos","rosa@mail.com"),
+    //   new Usuario("Rosa","Perez","Campos","rosa@mail.com"),
+    //   new Usuario("Rosa","Perez","Campos","rosa@mail.com")
+    // ];
    }
 
   ngOnInit() {
     console.log(this._usuarioService.show());
+    this._usuarioService.listUser().subscribe(
+      (result)=>{
+        console.log(result.data);
+        this.listaUsuarios=result.data;
+      },
+      (error)=>{
+
+      }
+    );
   }
 
 }
