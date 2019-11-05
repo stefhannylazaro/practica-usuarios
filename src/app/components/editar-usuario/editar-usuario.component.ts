@@ -15,5 +15,8 @@ export class EditarUsuarioComponent implements OnInit {
   ngOnInit() {
     this.usuario=new Usuario("","","","");//
   }
+  enviar(form:any){
+    console.log("edit...");
+  }
 
 }

@@ -1,13 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import {Usuario} from '../../models/usuario';
+import {UsuarioService} from '../../services/usuario.service';
+
 @Component({
   selector: 'app-listar-usuario',
   templateUrl: './listar-usuario.component.html',
-  styleUrls: ['./listar-usuario.component.css']
+  styleUrls: ['./listar-usuario.component.css'],
+  providers:[UsuarioService]
 })
 export class ListarUsuarioComponent implements OnInit {
   public listaUsuarios:Array<Usuario>;
-  constructor() {
+  constructor(
+    private _usuarioService:UsuarioService
+  ) {
     this.listaUsuarios=[
       new Usuario("Rosa","Perez","Campos","rosa@mail.com"),
       new Usuario("Rosa","Perez","Campos","rosa@mail.com"),
@@ -17,7 +22,7 @@ export class ListarUsuarioComponent implements OnInit {
    }
 
   ngOnInit() {
-    console.log(this.listaUsuarios);
+    console.log(this._usuarioService.show());
   }
 
 }
