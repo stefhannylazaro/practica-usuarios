@@ -30,6 +30,7 @@ export class ListarUsuarioComponent implements OnInit {
         this.listaUsuarios=result.data;
       },
       (error)=>{
+        console.log(<any>error)
       }
     );
   }

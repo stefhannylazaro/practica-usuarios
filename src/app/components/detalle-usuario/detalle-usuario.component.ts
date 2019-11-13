@@ -10,7 +10,7 @@ import {UsuarioService} from '../../services/usuario.service';
   providers:[UsuarioService]
 })
 export class DetalleUsuarioComponent implements OnInit {
-  public usuario:Usuario;
+  public usuario:any;
 
   constructor(private _route: ActivatedRoute, public _usuarioService:UsuarioService) {
     //this.usuario=new Usuario("","","","");
@@ -20,16 +20,16 @@ export class DetalleUsuarioComponent implements OnInit {
     this._route.params.subscribe(params=>{
       let id= params.id;
       this.getUserDetail(id);
-    });
+    }); 
   }
   getUserDetail(id:number){
     this._usuarioService.getUser(id).subscribe(
       (result)=>{
         console.log(result);
-        this.usuario=result;//usuario por id
+        this.usuario=result.data;//usuario por id
       },
       (error)=>{
-        
+        console.log(<any>error);
       }
     );  
   }

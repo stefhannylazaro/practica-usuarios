@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import {Usuario} from '../../models/usuario';
+import {UsuarioService} from '../../services/usuario.service';
 
 @Component({
   selector: 'app-crear-usuario',
   templateUrl: './crear-usuario.component.html',
-  styleUrls: ['./crear-usuario.component.css']
+  styleUrls: ['./crear-usuario.component.css'],
+  providers:[UsuarioService]
 })
 export class CrearUsuarioComponent implements OnInit {
   public title:string;
@@ -12,7 +14,9 @@ export class CrearUsuarioComponent implements OnInit {
   public mensaje:String;
   public tipoMensaje:String;
   public showNotification:Boolean=false;
-  constructor() {
+  constructor(
+    public _usuarioService:UsuarioService
+  ) {
     this.title= "Crear usuario";
     this.usuario=new Usuario("","","","");
   }
@@ -23,13 +27,24 @@ export class CrearUsuarioComponent implements OnInit {
   }
   enviar(form:any){
     this.showNotification=true;
-    this.mensaje="Exito";
-    this.tipoMensaje="success";
-    setTimeout(()=>{
-      this.showNotification=false;
-      form.reset();
-    },2000);
-    console.log(this.usuario);
+    /**/
+    this._usuarioService.saveUser(this.usuario).subscribe(
+      (result)=>{
+        if(result.id){
+          this.mensaje="Exito";
+          this.tipoMensaje="success";
+          setTimeout(()=>{
+            this.showNotification=false;
+            form.reset();
+          },2000);
+        }
+        console.log(result);
+      },
+      (error)=>{
+
+      }
+    );
   }
+  
 
 }

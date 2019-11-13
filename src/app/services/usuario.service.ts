@@ -15,9 +15,14 @@ export class UsuarioService{
 
     getUser(id:number):Observable<any>{
         return this._http.get(this.url+"api/users/"+id);
+        //return this._http.get(this.url+"api/users/"+id,{observe: 'response'});
+        //agrego el  parametro observe si quiero acceder a algo mas que el body, por ejemplo el header-- http://blog.enriqueoriol.com/2017/11/httpclient-vs-http-angular.html
     }
     
-    saveUser(user){}
+    saveUser(user):Observable<any>{
+        let params=JSON.stringify(user);
+        return this._http.post(this.url+"api/users",params);
+    }
     updateUser(user){}
 
     show(){
