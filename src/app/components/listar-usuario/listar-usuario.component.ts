@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Usuario} from '../../models/usuario';
 import {UsuarioService} from '../../services/usuario.service';
+import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 
 @Component({
   selector: 'app-listar-usuario',
@@ -11,7 +12,8 @@ import {UsuarioService} from '../../services/usuario.service';
 export class ListarUsuarioComponent implements OnInit {
   public listaUsuarios:Array<any>;
   constructor(
-    private _usuarioService:UsuarioService
+    private _usuarioService:UsuarioService,
+    private spinnerService: Ng4LoadingSpinnerService
   ) {
 
     // this.listaUsuarios=[
@@ -23,16 +25,13 @@ export class ListarUsuarioComponent implements OnInit {
    }
 
   ngOnInit() {
-    console.log(this._usuarioService.show());
+    this.spinnerService.show();//mostrar loading
     this._usuarioService.listUser().subscribe(
       (result)=>{
-        console.log(result.data);
         this.listaUsuarios=result.data;
+        this.spinnerService.hide();//esconder loading
       },
-      (error)=>{
-        console.log(<any>error)
-      }
+      (error)=>{console.log(<any>error)}
     );
   }
-
 }
