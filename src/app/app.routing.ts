@@ -7,6 +7,7 @@ import {ListarUsuarioComponent} from './components/listar-usuario/listar-usuario
 import {CrearUsuarioComponent} from './components/crear-usuario/crear-usuario.component';
 import {DetalleUsuarioComponent} from './components/detalle-usuario/detalle-usuario.component';
 import {EditarUsuarioComponent} from './components/editar-usuario/editar-usuario.component';
+import {UsuarioComponent} from './components/usuario/usuario.component';
 
 import {C404Component} from './components/c404/c404.component';
 
@@ -14,10 +15,12 @@ import {C404Component} from './components/c404/c404.component';
 const appRoutes: Routes = [
     {path: '',component:HomeComponent},
     {path: 'home',component:HomeComponent},
-    {path: 'usuarios',component:ListarUsuarioComponent},
+    {path: 'usuarios',component:UsuarioComponent,children:[
+      {path: '',component:ListarUsuarioComponent},
+      {path: 'editar-usuario/:id',component:EditarUsuarioComponent},
+      {path: 'detalle-usuario/:id',component:DetalleUsuarioComponent},
+    ]},
     {path: 'crear-usuario',component:CrearUsuarioComponent},
-    {path: 'editar-usuario/:id',component:EditarUsuarioComponent},
-    {path: 'detalle-usuario/:id',component:DetalleUsuarioComponent},
     {path: '**',component:C404Component}
   ];
 

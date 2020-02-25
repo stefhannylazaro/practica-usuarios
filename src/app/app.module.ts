@@ -15,6 +15,7 @@ import { C404Component } from './components/c404/c404.component';
 import { DetalleUsuarioComponent } from './components/detalle-usuario/detalle-usuario.component';
 import { NotificacionComponent } from './components/notificacion/notificacion.component';
 import { EditarUsuarioComponent } from './components/editar-usuario/editar-usuario.component';
+import { UsuarioComponent } from './components/usuario/usuario.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { EditarUsuarioComponent } from './components/editar-usuario/editar-usuar
     C404Component,
     DetalleUsuarioComponent,
     NotificacionComponent,
-    EditarUsuarioComponent
+    EditarUsuarioComponent,
+    UsuarioComponent
   ],
   imports: [
     BrowserModule,
