@@ -6,7 +6,7 @@ import { FormGroup, FormControl, Validators} from '@angular/forms';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  public formLogin = new FormGroup({
+  public formLogin= new FormGroup({
     userName: new FormControl('',[
       Validators.required,
       Validators.email
@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
   }
 
   iniciar(form:any){
-    console.log(this.formLogin);
-    
+    console.log(this.formLogin.value);
+
   }
 }
