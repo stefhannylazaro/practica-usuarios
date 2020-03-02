@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';//para trabajar con formularios
+import { ReactiveFormsModule } from '@angular/forms';
 import { routing, appRoutingProviders } from './app.routing';
 import {HttpClientModule} from '@angular/common/http';
 import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
@@ -16,6 +17,7 @@ import { DetalleUsuarioComponent } from './components/detalle-usuario/detalle-us
 import { NotificacionComponent } from './components/notificacion/notificacion.component';
 import { EditarUsuarioComponent } from './components/editar-usuario/editar-usuario.component';
 import { UsuarioComponent } from './components/usuario/usuario.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -29,11 +31,13 @@ import { UsuarioComponent } from './components/usuario/usuario.component';
     DetalleUsuarioComponent,
     NotificacionComponent,
     EditarUsuarioComponent,
-    UsuarioComponent
+    UsuarioComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     routing,
     HttpClientModule,
     Ng4LoadingSpinnerModule.forRoot() 
