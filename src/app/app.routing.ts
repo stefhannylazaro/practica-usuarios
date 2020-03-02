@@ -8,12 +8,13 @@ import {CrearUsuarioComponent} from './components/crear-usuario/crear-usuario.co
 import {DetalleUsuarioComponent} from './components/detalle-usuario/detalle-usuario.component';
 import {EditarUsuarioComponent} from './components/editar-usuario/editar-usuario.component';
 import {UsuarioComponent} from './components/usuario/usuario.component';
-
+import { LoginComponent } from './components/login/login.component';
 import {C404Component} from './components/c404/c404.component';
 
 //Array de rutas
 const appRoutes: Routes = [
-    {path: '',component:HomeComponent},
+    {path: '',component:LoginComponent},
+    {path: 'login',component:LoginComponent},
     {path: 'home',component:HomeComponent},
     {path: 'usuarios',component:UsuarioComponent,children:[
       {path: '',component:ListarUsuarioComponent},

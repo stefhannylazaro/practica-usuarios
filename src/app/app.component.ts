@@ -14,7 +14,7 @@ export class AppComponent  {
   constructor(private _router:Router){
     this._router.events.subscribe((result) => {
       this.path=this._router.url.split('/')[1];
-      this.show=this.path=="home"? false : true;
+      this.show=this.path=="login" || this.path=="" ? false : true;
     })
   }
 }
