@@ -13,7 +13,7 @@ import {C404Component} from './components/c404/c404.component';
 
 //Array de rutas
 const appRoutes: Routes = [
-    {path: '',component:LoginComponent},
+    {path: '',component:HomeComponent},
     {path: 'login',component:LoginComponent},
     {path: 'home',component:HomeComponent},
     {path: 'usuarios',component:UsuarioComponent,children:[

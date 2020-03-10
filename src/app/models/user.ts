@@ -1,8 +1,14 @@
-export interface User{
-    id?:number;
-    email:string;
-    pass:string,
+export interface UserI{
+    id?:number,
+    name:string,
+    email:string,
+    password?:string,
     created_at?:string,
     update_at?:string
 }
     
+export interface UserLoginI{
+    id?:number,
+    email:string,
+    password:string
+}
