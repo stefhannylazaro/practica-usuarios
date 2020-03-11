@@ -10,18 +10,18 @@ import {EditarUsuarioComponent} from './components/editar-usuario/editar-usuario
 import {UsuarioComponent} from './components/usuario/usuario.component';
 import { LoginComponent } from './components/login/login.component';
 import {C404Component} from './components/c404/c404.component';
-
+import {AuthGuard} from './guards/auth.guard';
 //Array de rutas
 const appRoutes: Routes = [
     {path: '',component:HomeComponent},
     {path: 'login',component:LoginComponent},
     {path: 'home',component:HomeComponent},
-    {path: 'usuarios',component:UsuarioComponent,children:[
+    {path: 'usuarios',component:UsuarioComponent,canActivate:[AuthGuard],children:[
       {path: '',component:ListarUsuarioComponent},
       {path: 'editar-usuario/:id',component:EditarUsuarioComponent},
       {path: 'detalle-usuario/:id',component:DetalleUsuarioComponent},
     ]},
-    {path: 'crear-usuario',component:CrearUsuarioComponent},
+    {path: 'crear-usuario',component:CrearUsuarioComponent, canActivate:[AuthGuard]},
     {path: '**',component:C404Component}
   ];
 
