@@ -13,6 +13,7 @@ export class AuthService {
   public isLogged:boolean;
   constructor( private _http:HttpClient) {
     this.url_api='https://reqres.in/';
+    this.isLogged=false;
   }
   headers:HttpHeaders= new HttpHeaders({
     "Content-Type":"application/json"
@@ -29,7 +30,8 @@ export class AuthService {
 
   loginUser(user:UserLoginI):Observable<any>{
     let params=JSON.stringify(user);
-    return this._http.post("http://127.0.0.1:8000/api/usuario/login",params,{headers:this.headers});
+    // return this._http.post("http://127.0.0.1:8000/api/usuario/login",params,{headers:this.headers});
+    return this._http.post("https://reqres.in/api/login",params,{headers:this.headers});
   }
 
   setUser(user){

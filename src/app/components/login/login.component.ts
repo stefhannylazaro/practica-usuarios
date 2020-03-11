@@ -14,10 +14,7 @@ export class LoginComponent implements OnInit {
   private user:UserI;
 
   public formLogin= new FormGroup({
-    userName: new FormControl('',[
-      Validators.required,
-      Validators.email
-    ]),
+    userName: new FormControl(''),
     userPass: new FormControl('',Validators.required)
  });
   constructor(private _authService:AuthService,private _router:Router) { }
@@ -39,9 +36,8 @@ export class LoginComponent implements OnInit {
     this._authService.loginUser(user).subscribe(
       result=>{
         console.log(result);
-        if(!result.responser.length){
-          //logueado
-          //data test response
+        //if(!result.responser.length){
+          //logueado-data test response
           let infoUser={
             id:1,
             name:"Lorena Perez",
@@ -49,11 +45,13 @@ export class LoginComponent implements OnInit {
           }
           this._authService.setUser(infoUser);
           this._authService.isLogged=true;
+          console.log("esta logueado???");
+          console.log(this._authService.isLogged);
           this._router.navigate(['/home']);
 
-        } else {
-          this._authService.isLogged=false;
-        }
+        // } else {
+        //   this._authService.isLogged=false;
+        // }
       },
       error=>{
         console.log(error.error)
