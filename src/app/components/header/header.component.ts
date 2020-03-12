@@ -20,6 +20,6 @@ export class HeaderComponent implements OnInit {
   onLogout():void{
     this._authService.logoutUser();
     this._authService.isLogged=false;
-    //location.reload();
+    location.reload();
   }
 }
