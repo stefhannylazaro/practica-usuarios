@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
     this._authService.loginUser(user).subscribe(
       result=>{
         console.log(result);
-        if(!result.responser.length){
+        // if(!result.responser.length){
           //logueado-data test response
           let infoUser={
             id:1,
@@ -49,9 +49,9 @@ export class LoginComponent implements OnInit {
           console.log(this._authService.isLogged);
           this._router.navigate(['/home']);
 
-        } else {
-          this._authService.isLogged=false;
-        }
+        // } else {
+        //   this._authService.isLogged=false;
+        // }
       },
       error=>{
         console.log(error.error)
