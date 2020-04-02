@@ -1,4 +1,19 @@
-<a href="" [routerLink]="['/usuarios']">Usuarios</a>
-<div id="scroll-check"  (scroll)="onScroll($event)">
+
+<div class="row">
+    <div class="col-md-3">
+        <a  [routerLink]="['/usuarios']" class="card-admin">
+            <div class="card-admin--icon"><i class="fas fa-users"></i></div>
+            <h5 class="card-admin--name py-2">Usuarios</h5>
+        </a>
+    </div>
+    <div class="col-md-3">
+        <a  [routerLink]="['/']" class="card-admin">
+            <div class="card-admin--icon"><i class="fas fa-users"></i></div>
+            <h5 class="card-admin--name py-2">Mantenimiento</h5>
+        </a>
+    </div>
+</div>
+
+<div id="scroll-check"  (scroll)="onScroll($event)" *ngIf="false">
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, explicabo? At velit sequi facere minus iure repellat ipsa dignissimos saepe. Sed dicta maiores non dolorem vitae. Modi qui quidem dolores?
 </div>

@@ -44,9 +44,9 @@ export class LoginComponent implements OnInit {
             email:"lore@gmail.com"
           }
           this._authService.setUser(infoUser);
-          this._authService.isLogged=true;
+          //this._authService.isLogged=true;
           console.log("esta logueado???");
-          console.log(this._authService.isLogged);
+          //console.log(this._authService.isLogged);
           this._router.navigate(['/home']);
 
         // } else {

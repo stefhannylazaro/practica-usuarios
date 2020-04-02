@@ -10,23 +10,21 @@ import { UserLoginI } from '../models/user';
 })
 export class AuthService {
   public url_api:string;
-  public isLogged:boolean;
   constructor( private _http:HttpClient) {
     this.url_api='https://reqres.in/';
-    this.isLogged=false;
   }
   headers:HttpHeaders= new HttpHeaders({
     "Content-Type":"application/json"
   });
 
-  registerUser(nombre:string, apellidoP:string, apellidoM:string, email:string){
-    return this._http.post(this.url_api+'Users',{
-      nombre:nombre,
-      apellidoP:apellidoP,
-      apellidoM: apellidoM,
-      email:email
-    },{headers:this.headers})
-  }
+  // registerUser(nombre:string, apellidoP:string, apellidoM:string, email:string){
+  //   return this._http.post(this.url_api+'Users',{
+  //     nombre:nombre,
+  //     apellidoP:apellidoP,
+  //     apellidoM: apellidoM,
+  //     email:email
+  //   },{headers:this.headers})
+  // }
 
   loginUser(user:UserLoginI):Observable<any>{
     let params=JSON.stringify(user);
@@ -40,7 +38,7 @@ export class AuthService {
 
   getCurrentUser(){
     let user_string=localStorage.getItem('currentUser');
-    if(!isNullOrUndefined(user_string)){//!user_string === null
+    if(!isNullOrUndefined(user_string)){
       return JSON.parse(user_string);
     } else {
       return null;

@@ -4,3 +4,38 @@
     border: 1px solid #efeeee;
     padding: 10px; 
 }
+
+.card-admin{
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 5px;
+    color:inherit;
+
+    &:hover{
+        color:inherit;
+        text-decoration: none;
+        .card-admin--name{
+            color:#007BFF
+        }
+        .card-admin--icon{
+            background-color: #007bff;
+            transition: all .3s ease-in;
+            i{
+                color: white;
+            }
+        }
+    }
+
+    &--icon{
+        width: 100%;
+        text-align: center;
+        padding: 25px 10px;      
+        i{
+            font-size: 2em;
+        }
+    }
+
+}

@@ -13,7 +13,7 @@ export class DetalleUsuarioComponent implements OnInit {
   public usuario:any;
 
   constructor(private _route: ActivatedRoute, public _usuarioService:UsuarioService) {
-    //this.usuario=new Usuario("","","","");
+    //this.usuario=new Usuario("","","");
   }
 
   ngOnInit() {

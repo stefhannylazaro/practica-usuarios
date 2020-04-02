@@ -5,7 +5,7 @@ import {UserI} from '../../models/user';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css'],
+  styleUrls: ['./header.component.scss'],
   providers:[AuthService]
 })
 export class HeaderComponent implements OnInit {
@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit {
   }
   onLogout():void{
     this._authService.logoutUser();
-    this._authService.isLogged=false;
+    //this._authService.isLogged=false;
     location.reload();
   }
 }

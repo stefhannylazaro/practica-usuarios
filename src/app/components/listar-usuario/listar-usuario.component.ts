@@ -17,10 +17,8 @@ export class ListarUsuarioComponent implements OnInit {
   ) {
 
     // this.listaUsuarios=[
-    //   new Usuario("Rosa","Perez","Campos","rosa@mail.com"),
-    //   new Usuario("Rosa","Perez","Campos","rosa@mail.com"),
-    //   new Usuario("Rosa","Perez","Campos","rosa@mail.com"),
-    //   new Usuario("Rosa","Perez","Campos","rosa@mail.com")
+    //   new Usuario("Rosa","Perez","rosa@mail.com"),
+    //   new Usuario("Rosa","Perez","rosa@mail.com")
     // ];
    }
 

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-primary">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <a class="navbar-brand text-white" href="#" [routerLink]="['/home']"><strong>Administrador</strong></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -7,10 +7,10 @@
     <ul class="navbar-nav" *ngIf="_authService.getCurrentUser()">
         <!-- mostrar solo si esta logueado -->
       <li class="nav-item">
-        <a class="nav-link">{{userC.name}}</a>
+        <a class="nav-link text-white cursor-default">{{userC.name}}</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" (click)="onLogout()">Cerrar sesión</a>
+        <a class="nav-link text-white cursor-pointer" (click)="onLogout()">Cerrar sesión</a>
       </li>
     </ul>
   </div>

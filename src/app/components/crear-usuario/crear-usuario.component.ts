@@ -14,37 +14,38 @@ export class CrearUsuarioComponent implements OnInit {
   public mensaje:String;
   public tipoMensaje:String;
   public showNotification:Boolean=false;
+  public createUser:boolean;
   constructor(
     public _usuarioService:UsuarioService
   ) {
     this.title= "Crear usuario";
-    this.usuario=new Usuario("","","","");
+    this.createUser=true;
+    this.usuario=new Usuario("","","");
   }
 
   ngOnInit() {
-    this.mensaje="asd";
-    this.tipoMensaje="asd";
+    this.mensaje="";
+    this.tipoMensaje="";
   }
   enviar(form:any){
     this.showNotification=true;
-    /**/
+
     this._usuarioService.saveUser(this.usuario).subscribe(
       (result)=>{
         if(result.id){
-          this.mensaje="Exito";
+          this.mensaje="Usuario registrado con exito";
           this.tipoMensaje="success";
           setTimeout(()=>{
             this.showNotification=false;
             form.reset();
           },2000);
         }
-        console.log(result);
       },
       (error)=>{
-
+        this.mensaje="Usuario no registrado, ocurrió un error.";
+        this.tipoMensaje="error";
       }
     );
-  }
-  
+  }  
 
 }

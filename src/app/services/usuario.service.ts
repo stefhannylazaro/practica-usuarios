@@ -2,7 +2,10 @@
 import {Injectable} from '@angular/core';
 import {HttpClient,HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
-@Injectable()
+
+@Injectable({
+    providedIn: 'root'
+})
 
 export class UsuarioService{
     public url:string
@@ -23,7 +26,10 @@ export class UsuarioService{
         let params=JSON.stringify(user);
         return this._http.post(this.url+"api/users",params);
     }
-    updateUser(user){}
+    updateUser(user):Observable<any>{
+        let params=JSON.stringify(user);
+        return this._http.put(this.url+"api/users/"+user.id,params);
+    }
 
     show(){
         return "Hola-servicio";
