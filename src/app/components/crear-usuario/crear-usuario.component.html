@@ -1,4 +1,4 @@
-<div *ngIf="createUser || findUser; else notFindUser">
+<div>
     <h5 class="mb-2">{{title}}</h5>
     <div class="row">
         <form #formUser="ngForm" (ngSubmit)="enviar(formUser)" class="col-md-8">
@@ -37,8 +37,8 @@
 </div>
 
 <!-- Si intenta editar un usuario que no existe -->
-<ng-template #notFindUser>
+<!-- <ng-template #notFindUser>
     <div class="alert alert-danger" role="alert">
         <h5>Usuario no encontrado</h5>
     </div>  
-</ng-template>
+</ng-template> -->

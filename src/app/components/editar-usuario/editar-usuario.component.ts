@@ -15,7 +15,6 @@ export class EditarUsuarioComponent implements OnInit {
   public mensaje:String;
   public tipoMensaje:string;
   public showNotification:Boolean=false;
-  public findUser:boolean;
 
   constructor(private _activatedRoute:ActivatedRoute, private _usuarioService:UsuarioService) {
     this.title= "Editar usuario";
@@ -59,13 +58,12 @@ export class EditarUsuarioComponent implements OnInit {
   getUserDetail(id:number){
     this._usuarioService.getUser(id).subscribe(
       (result)=>{
-        this.usuario=result.data;
-        this.findUser=true;
+        this.usuario=result.data;;
       },
       (error)=>{
         console.log(<any>error);
         if(error.status==404){
-          this.findUser=false;
+          console.log("error usuario no encontrado");
         }
         
       }
