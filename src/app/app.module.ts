@@ -18,6 +18,8 @@ import { NotificacionComponent } from './components/notificacion/notificacion.co
 import { EditarUsuarioComponent } from './components/editar-usuario/editar-usuario.component';
 import { UsuarioComponent } from './components/usuario/usuario.component';
 import { LoginComponent } from './components/login/login.component';
+import { LoadingComponent } from './components/shared/loading/loading.component';
+
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import { LoginComponent } from './components/login/login.component';
     NotificacionComponent,
     EditarUsuarioComponent,
     UsuarioComponent,
-    LoginComponent
+    LoginComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,

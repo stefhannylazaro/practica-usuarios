@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Usuario} from '../../models/usuario';
 import {UsuarioService} from '../../services/usuario.service';
+import { FormGroup, FormControl, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-crear-usuario',
@@ -10,17 +11,22 @@ import {UsuarioService} from '../../services/usuario.service';
 })
 export class CrearUsuarioComponent implements OnInit {
   public title:string;
-  public usuario:Usuario;
   public mensaje:String;
   public tipoMensaje:String;
   public showNotification:Boolean=false;
   public createUser:boolean;
+
+  public formUser=new FormGroup({
+    first_name: new FormControl(''),
+    last_name: new FormControl(''),
+    email: new FormControl('')
+  });
+
   constructor(
     public _usuarioService:UsuarioService
   ) {
     this.title= "Crear usuario";
     this.createUser=true;
-    this.usuario=new Usuario("","","");
   }
 
   ngOnInit() {
@@ -29,8 +35,7 @@ export class CrearUsuarioComponent implements OnInit {
   }
   enviar(form:any){
     this.showNotification=true;
-
-    this._usuarioService.saveUser(this.usuario).subscribe(
+    this._usuarioService.saveUser(form.value).subscribe(
       (result)=>{
         if(result.id){
           this.mensaje="Usuario registrado con exito";

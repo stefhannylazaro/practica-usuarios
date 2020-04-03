@@ -1,4 +1,5 @@
-<div class="row" *ngIf="usuario">
+<app-loading *ngIf="loading"></app-loading>
+<div class="row" *ngIf="!loading && !isError">
     <div class="col-md-12"><h5 class="mb-2">Detalle usuario</h5></div>
     <div class="col-md-12">
         <div class="my-1"><strong>Nombre:</strong><span>{{usuario.first_name}}</span></div>
@@ -8,5 +9,11 @@
             <img src="{{usuario.avatar}}" alt="" *ngIf="usuario.avatar">
         </div>
         <button type="" class="btn btn-secondary my-2" [routerLink]="['/usuarios']">Cancelar</button>
+    </div>
+</div>
+
+<div *ngIf="isError">
+    <div class="alert alert-danger" role="alert">
+        <h5>Usuario no encontrado</h5>
     </div>
 </div>

@@ -11,12 +11,14 @@ import {UsuarioService} from '../../services/usuario.service';
 })
 export class DetalleUsuarioComponent implements OnInit {
   public usuario:any;
-
+  public loading:boolean;
+  public isError:boolean;
   constructor(private _route: ActivatedRoute, public _usuarioService:UsuarioService) {
-    //this.usuario=new Usuario("","","");
+    this.isError=false;
   }
 
   ngOnInit() {
+    this.loading=true;
     this._route.params.subscribe(params=>{
       let id= params.id;
       this.getUserDetail(id);
@@ -25,11 +27,15 @@ export class DetalleUsuarioComponent implements OnInit {
   getUserDetail(id:number){
     this._usuarioService.getUser(id).subscribe(
       (result)=>{
-        console.log(result);
+        this.loading=false;
         this.usuario=result.data;//usuario por id
       },
       (error)=>{
         console.log(<any>error);
+        if(<any>error.status==404){
+          this.loading=false;
+          this.isError=true;
+        }
       }
     );  
   }
